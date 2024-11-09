@@ -5,7 +5,7 @@ class Kategori extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('kategori_model');
+        $this->load->model('Kategori_model');
         $this->load->library('form_validation');
     }
     public function index()
@@ -62,5 +62,15 @@ class Kategori extends CI_Controller
         $this->Kategori_model->delete($id);
         redirect('kategori');
     }
+
+    public function laporan()
+    {
+        $data = array(
+            'title' => 'Tambah Laporan Data Kategori',
+            'content' => 'kategori/laporan'
+        );
+        $this->load->view('template/main', $data);
+    }
+
 
 }
